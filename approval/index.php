@@ -1,35 +1,22 @@
 <?php
-include("../connect.php");
+include "../db/db.php";
 if (Isset($_POST['submit'])) {
 //escaping mysql injection
 $email=$_POST['email'];
 $password=$_POST['password'];
-$email=htmlspecialchars($email);
-$email=strip_tags($email);
-$email=mysql_real_escape_string($email);
 
-$password=htmlspecialchars($password);
-$password=strip_tags($password);
-$password=mysql_real_escape_string($password);
 
 if  (!empty($email) && !empty($password)) 
 $sql="SELECT*FROM approval WHERE email='$email' AND password='$password'";
-$query=mysql_query($sql);
-$rows=mysql_num_rows($query);
 
-if ($rows==0) {
-echo "<div id='u'>";
-echo "<h3 class='forgot'>You are not a member</h3>";
-echo "</div>";
-}
-else  {
-$sql="SELECT*FROM approval WHERE email='$email' AND password='$password'";
-$query=mysql_query($sql);
-$rows=mysql_fetch_assoc($query);
-$approval_id=$rows['approval_id'];
-$fName = $rows['fName'];
-$lName = $rows['lName'];
-$approval_name = $fName." ".$lName;
+$result = $conn->query($sql); 
+if ($result->num_rows > 0) {
+	//
+	$rows = $result->fetch_assoc();
+	$approval_id=$rows['approval_id'];
+	$fName = $rows['fName'];
+	$lName = $rows['lName'];
+	$approval_name = $fName." ".$lName;
 
 $time=time()+60*60*60;
 setCookie('artist_id',$approval_id,$time);
@@ -37,7 +24,17 @@ setCookie('artist_name',$approval_name,$time);
 
 ob_start(); 
 header("location:admin.php");
+	//
 
+}
+else  {
+
+
+//
+echo "<div id='u'>";
+echo "<h3 class='forgot'>You are not a member</h3>";
+echo "</div>";
+//
 
 }
 }
