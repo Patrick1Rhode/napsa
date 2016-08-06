@@ -2,7 +2,8 @@
 <html>
 	
 <head>
-	<title>Napsa Approval Dispenser</title>    
+	<title>Napsa Approval Dispenser</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">    
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
 		<meta charset="utf-8">  
