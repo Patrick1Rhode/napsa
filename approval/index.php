@@ -41,57 +41,41 @@ header("location:admin.php");
 
 }
 }
+
+//Header File
+include 'header.php';
 ?>
-
-
-
-<!DOCTYPE html>
-<html>
-	
-<head>
-	<title>Napsa Approval Dispenser</title>
-        
-          <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-		<meta charset="utf-8">
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-</head>
 <body>
-	<div class="container">
-             <nav class="navbar navbar-inverse" role="navigation">
-<div class="navbar-header"> 
-<a class="navbar-brand" href="index.php">Napsa Approval</a>
- </div> 
- <div>
- <ul class="nav navbar-nav">
-
- 
- 
- </ul>
-
- </div> 
- </nav>
-            <div class="row">
-                <div class="col-md-12">
-                    <form role="form" action="index.php" method="post">
-                      <div class="form-group">
-                          <label class="control-label">email</label>
-                          <input type="text" name="email" class="form-control">
-                          <label class="control-label">Password</label>
-                          <input type="text" name="password" class="form-control">
-                        
-                          <button class="btn btn-primary" name="submit" type="submit">Login</button>
-                      </div>
-                        
-                    </form>
-                
-                
-            </div>
-    
-				
-				
-				
-        </div>		 		
+  <div class="row home">
+  <div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Please sign in</h3>
+        </div>
+          <div class="panel-body">
+            <form role="form" action="index.php" method="post">
+                    <fieldset>
+                <div class="form-group">
+                  <input class="form-control" placeholder="E-mail" name="email" type="text">
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Password" name="password" type="password">
+              </div>
+              <div class="checkbox">
+                  <label>
+                    <input name="remember" type="checkbox" value="Remember Me"> Remember Me
+                  </label>
+                </div>
+              <input class="btn btn-md btn-success btn-block" type="submit" value="Login" name="submit">
+            </fieldset>
+              </form>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>		
+  </div>
+  </div>		 		
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+include 'header.php';
 include "../db/db.php";
 $level = 1;
 $gramar = "";

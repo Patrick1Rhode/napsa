@@ -1,15 +1,5 @@
-<html>
-<head>
- <meta name="description" content="Amavuvuzela">
-    <meta name="author" content="Amavuvuzela">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
-</head>
 <?php
+include 'header.php';
 include "../user.class.php";
 include "../db/db.php";
 //
