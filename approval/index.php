@@ -68,7 +68,7 @@ include 'header.php';
                     <input name="remember" type="checkbox" value="Remember Me"> Remember Me
                   </label>
                 </div>
-              <input class="btn btn-md btn-success btn-block" type="submit" value="Login" name="submit">
+              <input class="btn btn-md btn-success login btn-block" type="submit" value="Login" name="submit">
             </fieldset>
               </form>
           </div>

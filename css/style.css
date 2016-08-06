@@ -1,9 +1,13 @@
-html { 
-  
+.login{ 
+  background-color: #002a7d;
+  border-color: transparent;
+}
+.login:hover{ 
+  background-color: #002a7d;
 }
 body{
 	font-family: 'Open Sans', sans-serif;
-	background: url(2.jpg) no-repeat center center fixed; 
+	background: url(14.gif) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
