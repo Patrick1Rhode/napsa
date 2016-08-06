@@ -2,7 +2,7 @@
 <html>
 	
 <head>
-	<title>NAPSA Approval Dispenser</title>
+	<title>NAPSA Initiator</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">    
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -12,7 +12,7 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php" style="color: white;">NAPSA</a>
+                <a class="navbar-brand" href="index.php" style="color: white;">NAPSA - Init</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->   
         </div>
