@@ -34,14 +34,14 @@ include "../db/db.php";
 <?php
 //
 $id = $_GET['init_file_id'];
-$sql = "SELECT*FROM init_file INNER JOIN init USING(init_id)  WHERE init_file.init_file_id = '$id'";
+$sql = "SELECT*FROM init_file INNER JOIN officer USING(ServiceNumber)  WHERE init_file.init_file_id = '$id'";
 $result = $conn->query($sql); 
 if ($result->num_rows > 0) {
 	
 	
     $row = $result->fetch_assoc();
 	$json_file_name = $row["file_name"];
-	$init_id = $row["init_id"];
+	$ServiceNumber = $row["ServiceNumber"];
 	$init_file_id = $row["init_file_id"];
 	
 
