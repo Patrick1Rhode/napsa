@@ -268,8 +268,6 @@ if(isset($service_number) && !empty($service_number)){
 	<div class="col-md-3">
 		<img src="../img/coa.png" class="img-responsive"><br><hr>
 		
-
-	
 	</div>
 </div>
 </div>

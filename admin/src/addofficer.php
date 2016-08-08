@@ -167,11 +167,11 @@ if(isset($_POST['submit'])){
 			$data_entry = mysqli_query($connect, $query) or die("Query Failed");
 
 			$query = "INSERT INTO `securitygroup` VALUES ('$servicenumber', '$permission_type2', '$permissions_level')";
-			$data_entry = mysqli_query($connect, $query) or die(mysqli_error());
+			$data_entry = mysqli_query($connect, $query) or die(mysql_error());
 
-			
+			$num_rows = mysqli_num_rows($data_entry);
 
-			if($data_entry){
+			if($num_rows >= 1){
 				header('Location: addconfirm.php');
 			} else {
 				
