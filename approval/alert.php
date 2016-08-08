@@ -1,7 +1,7 @@
 <?php
 include "../db/db.php";
 include "header.php";
-require 'class-Clockwork.php';
+
 if((!$_SESSION['permissions_level'] == 2 && !$_SESSION['permission_type'] == 'IT Support')){
 	  echo "<script>window.location = 'index.php';</script>'";
 }
@@ -27,28 +27,23 @@ if ($result->num_rows > 0) {
 
 function sendsms($phone,$m){
 	
+ $baseurl = "http://smsapi.probasesms.com/apis/text/index.php";
 
-try
-{
-		$API_KEY = "ac212a54b4a65ff1426f2054238a88b8cd3dc2f9";
-    // Create a Clockwork object using your API key
-    $clockwork = new Clockwork( $API_KEY );
-
-    // Setup and send a message
-    $message = array( 'to' => "$phone", 'message' => "$m" );
-    $result = $clockwork->send( $message );
-
-    // Check if the send was successful
-    if($result['success']) {
-        echo 'Message sent - ID: ' . $result['id'];
-    } else {
-        echo 'Message failed - Error: ' . $result['error_message'];
-    }
-}
-catch (ClockworkException $e)
-{
-    echo 'Exception sending SMS: ' . $e->getMessage();
-}
+	$qs	= http_build_query(array(
+		'username'=>'demo',
+		'password'=>'password',
+		'mobiles'=>$phone,
+		'message'=>$m,
+		'sender'=>'NAPSA',
+		'type'=>'TEXT',
+	));
+	
+	$url	= $baseurl.'?'.$qs;
+	
+	$curl_handle = curl_init();
+	curl_setopt( $curl_handle, CURLOPT_URL, $url );
+	curl_exec( $curl_handle );
+	curl_close( $curl_handle );	
 }
 if($_GET['id']=="accept"){
 		//
