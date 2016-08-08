@@ -1,21 +1,27 @@
 <?php
 include "../db/db.php";
+include "header.php";
 require 'class-Clockwork.php';
-echo $file_id = $_GET['file_id'];
+if((!$_SESSION['permissions_level'] == 2 && !$_SESSION['permission_type'] == 'IT Support')){
+	  echo "<script>window.location = 'index.php';</script>'";
+}
+  $file_id = $_GET['file_id'];
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT*FROM init_file INNER JOIN init USING(init_id)  INNER JOIN approval ORDER BY init_file_id DESC ";
+$sql = "SELECT*FROM init_file INNER JOIN officer USING(ServiceNumber)   ORDER BY init_file_id DESC ";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     $row = $result->fetch_assoc();
 	$json_file_name = $row["file_name"];
-	$init_id = $row["init_id"];
-	$phone_number = $row['phone_number'];
-	$phone_numberp = $row['pphone_number'];
+	$ServiceNumber = $row["ServiceNumber"];
+	//$phone_number = $row['phone_number'];
+	$phone_number = "260972148199";
+	
+	
 }
 
 
@@ -63,7 +69,8 @@ $conn->close();
 	sendsms($phone_number,"File Approved");
 
 }
-else if($_GET['id']=="denied"){
+else if($_GET['id']=="decline"){
+	echo "your file denied due to errors";
 	sendsms($phone_number,"You file has been denied due to errors");
 	if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

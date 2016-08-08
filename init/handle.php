@@ -1,6 +1,7 @@
 <?php
 include "../db/db.php";
 require 'class-Clockwork.php';
+session_start();
 function sendsms($phone,$m){
 	
 
@@ -27,13 +28,13 @@ catch (ClockworkException $e)
 }
 }
 
-$init_id = $_COOKIE['init_id'];
+$service_number = $_SESSION['service_number'];
 $target_dir = "approvedfiles/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $fileName = $_FILES["fileToUpload"]["name"];
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-$sql = "INSERT INTO init_file (init_id,file_name) VALUES ('$init_id','$fileName')";
+$sql = "INSERT INTO init_file (ServiceNumber,file_name) VALUES ('$service_number','$fileName')";
 
 if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
