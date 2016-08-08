@@ -267,47 +267,9 @@ if(isset($service_number) && !empty($service_number)){
 	</div>
 	<div class="col-md-3">
 		<img src="../img/coa.png" class="img-responsive"><br><hr>
-		<?php
-		//Check if the user has their barrack.
-		$query = "SELECT * FROM `barrack` WHERE `ServiceNumber` = '$service_number'";
-		$data_check = mysqli_query($connect, $query) or die("Error querying Database");
-		$num_rows = mysqli_num_rows($data_check);
+		
 
-		if($num_rows >= 1){
-			while($row = mysqli_fetch_array($data_check)){
-				echo 'Barrack: '. $row['BarrackName'].'<br>';
-			}
-		} elseif($num_rows == 0){
-			echo '<p><small>Please select your barrack</small></p><br>';
-			echo '<form action="add_barrack.php" method="POST">';
-			echo '<select name="barrack">';
-			echo '<option value="Barrack-1">Barrack 1</option>
-				  <option value="Barrack-2">Barrack 2</option>
-				  <option value="Barrack-3">Barrack 3</option>';
-			echo '</select>';
-			echo '<input type="submit" name="add_barrack" value="Add">';
-			echo '</form>';
-		}
-
-		//Check if qualification has been added
-		$query = "SELECT * FROM `officeracadquali` WHERE `AcadQualID` = '$service_number'";
-		$data_check = mysqli_query($connect, $query) or die("Error querying Database");
-		$num_rows = mysqli_num_rows($data_check);
-
-		if($num_rows >= 1){
-
-		} elseif($num_rows == 0){
-			echo '<br>Please Add Your Qualification';
-			echo '<div class="input-group">
-      	<input type="text" class="form-control" placeholder=" Qualification">
-      	<input type="text" class="form-control" placeholder="Year">
-      	<button class="btn btn-default" type="button">+ Add</button><br>
-        <br>
-      	</span>
-    	</div>';
-		}
-
-		?>
+	
 	</div>
 </div>
 </div>
