@@ -28,8 +28,13 @@ if ($result->num_rows > 0) {
 	$json_file_name = $row["file_name"];
 	$ServiceNumber = $row["ServiceNumber"];
 	$init_file_id = $row["init_file_id"];
+	$confirmation_code = $row['confirmation_code'];
+	echo "<input type='hidden' ng-init='confirmation'='$confirmation_code'></td>";
+	//<a href='view.php?init_file_id=$init_file_id'>File <b>$json_file_name</b> is pending approval click here to view</a>
+	?>
 	
-	echo "<p><a href='view.php?init_file_id=$init_file_id'>File <b>$json_file_name</b> is pending approval click here to view</a></p>";
+	<?php
+	echo "<p><button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal'>$json_file_name is pending approval enter confirmation code</button></p>";
 	}
 	//
 		   
@@ -47,3 +52,29 @@ $conn->close();
 		   }
 
 ?>
+</body>
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <div ng-app="">
+		   <input type="text" ng-model="file" name="code"></br>
+		   <button type="submit" class='btn-success' name="code">Confirm code</button>
+		   <p>{{file}}</p>
+		   
+		  </div>
+		  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</html>
