@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 include "../db/db.php";
-if(($_SESSION['permissions_level'] == 3 && $_SESSION['permission_type'] == 'Public')){
+if(($_SESSION['permissions_level'] == 2 && $_SESSION['permission_type'] == 'IT Support')){
 	
 	    $level = 1;
 $gramar = "";

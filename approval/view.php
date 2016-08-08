@@ -32,7 +32,7 @@ include "../db/db.php";
                     </thead>
                     <tbody>
 <?php
-if((!$_SESSION['permissions_level'] == 3 && !$_SESSION['permission_type'] == 'Public')){
+if((!$_SESSION['permissions_level'] == 2 && !$_SESSION['permission_type'] == 'IT Support')){
 	  echo "<script>window.location = 'index.php';</script>'";
 }
 $id = $_GET['init_file_id'];

@@ -1,7 +1,10 @@
 <?php
 include 'header.php';
-if(!isset($_COOKIE['init_id'])) {
-	header("location : index.php");
+if(($_SESSION['permissions_level'] == 3 && $_SESSION['permission_type'] == 'Public')){
+
+}	
+else{
+		echo "<script>window.location = 'index.php';</script>'";
 }
 ?>
 <body>
