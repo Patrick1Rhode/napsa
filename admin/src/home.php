@@ -31,18 +31,18 @@ if(isset($service_number) && !empty($service_number)){
       <?php
       if($_SESSION['permissions_level'] == 1 && $_SESSION['permission_type'] == 'Administrator'){
       	echo '<div class="list-group">
-  		<a href="addofficer.php" class="list-group-item">
-    	Add an Officer
+  		<a href="adduser.php" class="list-group-item">
+    	Add an User
   		</a>
-  <a href="viewofficers.php" class="list-group-item">View Officers</a>
-  <a href="#" class="list-group-item">Delete Officers</a>
+  <a href="viewofficers.php" class="list-group-item">View User</a>
+  <a href="#" class="list-group-item">Delete Users</a>
 </div>';
       } elseif ($_SESSION['permissions_level'] == 2 && $_SESSION['permission_type'] == 'IT Support') {
       	echo '<div class="list-group">
   		<a href="addofficer.php" class="list-group-item">
-    	Add an Officer
+    	Add an User
   		</a>
-  	<a href="viewofficers.php" class="list-group-item">View Officers</a>
+  	<a href="viewofficers.php" class="list-group-item">View Users</a>
 	</div>';
       } elseif ($_SESSION['permissions_level'] == 3 && $_SESSION['permission_type'] == 'Public') {
       	echo '<p style="text-align: center">Unauthorized<br>You are not allowed to view this content</p>';
