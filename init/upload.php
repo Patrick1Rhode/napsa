@@ -12,6 +12,7 @@ if(!isset($_COOKIE['init_id'])) {
 			<div class="panel-heading"><strong>Upload files</strong> <small> </small></div>
 			<div class="panel-body">
 				<div class="input-group image-preview">
+				 <form action="handle.php" method="post" enctype="multipart/form-data">
 					<input placeholder="" type="text" class="form-control image-preview-filename" disabled="disabled">
 					<!-- don't give a name === doesn't send on POST/GET --> 
 					<span class="input-group-btn"> 
@@ -19,11 +20,13 @@ if(!isset($_COOKIE['init_id'])) {
 					<button type="button" class="btn btn-default image-preview-clear" style="display:none;"> <span class="glyphicon glyphicon-remove"></span> Clear </button>
 					<!-- image-preview-input -->
 					<div class="btn btn-default image-preview-input"> <span class="glyphicon glyphicon-folder-open"></span> <span class="image-preview-input-title">Browse</span>
-						<input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/>
+						<input type="file" name="fileToUpload" id="fileToUpload">
 						<!-- rename it --> 
 					</div>
-					<button type="button" class="btn btn-labeled btn-default"> <span class="btn-label"><i class="glyphicon glyphicon-upload"></i> </span>Upload</button>
-					</span> </div>
+					<button type="submit" name="submit" class="btn btn-labeled btn-default"> <span class="btn-label"><i class="glyphicon glyphicon-upload"></i> </span>Upload</button>
+					</span>
+				</form>
+					</div>
 				<!-- /input-group image-preview [TO HERE]--> 
 				
 				<br />
@@ -36,14 +39,9 @@ if(!isset($_COOKIE['init_id'])) {
 	</div>
 	<div class="col-md-3"></div>
 </div>
-<?php
-echo "<h1> hello mr ".$_COOKIE['init_name'];
-?>
-<form action="handle.php" method="post" enctype="multipart/form-data">
-    Select image to upload:
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload The File" name="submit">
-</form>
+
+
+
 
 </body>
 <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>

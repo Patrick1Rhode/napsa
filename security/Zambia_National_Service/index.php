@@ -1,8 +1,7 @@
 <?php
-<<<<<<< HEAD
 	include 'header.php';
-	include '../constants/db_constants.php';
-	include '../constants/encryption_keys.php'; 
+	include 'src/constants/db_constants.php';
+	include 'src/constants/encryption_keys.php'; 
 ?>
 
 <article>
@@ -11,7 +10,7 @@
 		<div class="col-md-6 col-md-push-3">
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 			<fieldset>
-				<legend>Napsa Approver Console</legend>
+				<legend>Zambia National Service Database FRONT END</legend>
 				
 				<p>Service Number: <br>
 				<input type="text" name="username"></p>
@@ -30,31 +29,10 @@
 if(isset($_POST['login'])){
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-=======
-include "../db/db.php";
-if (Isset($_POST['submit'])) {
-//escaping mysql injection
-$email=$_POST['email'];
-$password=$_POST['password'];
-
-
-if  (!empty($email) && !empty($password)) 
-$sql="SELECT*FROM approval WHERE email='$email' AND password='$password'";
-
-$result = $conn->query($sql); 
-if ($result->num_rows > 0) {
-	//
-	$rows = $result->fetch_assoc();
-	$approval_id=$rows['approval_id'];
-	$fName = $rows['fName'];
-	$lName = $rows['lName'];
-	$approval_name = $fName." ".$lName;
->>>>>>> b07099192ebf560b80005ade543e44d82d1343e6
 
 	if(!empty($username) && !empty($password)){
-		$connect = mysqli_connect(NAPSA_HOSTNAME, NAPSA_SERVER_USERNAME, NAPSA_SERVER_PASS, NAPSA_SERVER_DB) or die('Error connecting to Server');
+		$connect = mysqli_connect(ZNS_HOSTNAME, ZNS_SERVER_USERNAME, ZNS_SERVER_PASS, ZNS_SERVER_DB) or die('Error connecting to Server');
 
-<<<<<<< HEAD
 		//check varialbles and sanitize them to prevent SQL Injection
 		function Sanitize_Input($input, $connect){
 			$input = mysqli_real_escape_string($connect, $input);
@@ -62,21 +40,6 @@ if ($result->num_rows > 0) {
 
 			return $input;
 		}
-=======
-ob_start(); 
-header("location:admin.php");
-	//
-
-}
-else  {
-
-
-//
-echo "<div id='u'>";
-echo "<h3 class='forgot'>You are not a member</h3>";
-echo "</div>";
-//
->>>>>>> b07099192ebf560b80005ade543e44d82d1343e6
 
 		$username = Sanitize_Input($username, $connect);
 		$password = Sanitize_Input($password, $connect);
@@ -94,8 +57,8 @@ echo "</div>";
 				$ServiceNumber = $row[1];
 				$_SESSION['service_number'] = $ServiceNumber;
 			}
-		  
-			header('Location: home.php');
+		
+			header('Location: src/home.php');
 		} else {
 			echo "Hello No";
 		}

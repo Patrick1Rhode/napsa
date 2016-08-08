@@ -6,6 +6,9 @@
 <input type="text" ng-model="name">
 <p>{{name}}</p>
 </div>
-
+<?php 
+$digits = 6;
+echo rand(pow(10, $digits-1), pow(10, $digits)-1);
+?>
 </body>
 </html>

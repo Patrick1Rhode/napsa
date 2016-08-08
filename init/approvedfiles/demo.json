@@ -5,13 +5,13 @@
 	
 	{"firstName":"John", "lastName":"Banda" , "bankName":"Zanaco" , "nrc":"655/555/33/3" , "acc":"00011647611999" , "ssn":"111" , "amount":"4000" , "dob":"17/06/1949" , "sex":"m" , "bankBranchName":"Zanaco cairo" , "perion":"null"},
 	
-	{"firstName":"Bupe", "lastName":"Banda" , "bankName":"Zanaco" , "nrc":"655/555/33/3" , "acc":"000116476167" , "ssn":"1111" , "amount":"4000" , "dob":"17/06/1949" , "sex":"m" , "bankBranchName":"Zanaco cairo" , "perion":"null"},
+	{"firstName":"Bupe", "lastName":"Banda" , "bankName":"Zanaco" , "nrc":"655/555/33/3" , "acc":"000116476167" , "ssn":"1111" , "amount":"4000" , "dob":"17/06/1949" , "sex":"f" , "bankBranchName":"Zanaco cairo" , "perion":"null"},
 	
 	{"firstName":"Mwiza", "lastName":"Zulu" , "bankName":"FNB" , "nrc":"655/555/33/3" , "acc":"00011647616789" , "ssn":"11111" , "amount":"4000" , "dob":"17/06/1949" , "sex":"m" , "bankBranchName":"FNB cairo" , "perion":"null"},
 	
-	{"firstName":"Caro", "lastName":"Phiri" , "bankName":"ACCESS BANK" , "nrc":"655/555/33/3" , "acc":"000116476167891" , "ssn":"11112" , "amount":"3000" , "dob":"17/06/1939" , "sex":"m" , "bankBranchName":"FBZ cairo" , "perion":"null"},
+	{"firstName":"Caro", "lastName":"Phiri" , "bankName":"ACCESS BANK" , "nrc":"655/555/33/3" , "acc":"000116476167891" , "ssn":"11112" , "amount":"3000" , "dob":"17/06/1939" , "sex":"f" , "bankBranchName":"FBZ cairo" , "perion":"null"},
 	
-	{"firstName":"Given", "lastName":"Chiileshe" , "bankName":"FBZ" , "nrc":"655/555/33/3" , "acc":"0001164761678912" , "ssn":"11123" , "amount":"3000" , "dob":"17/06/1940" , "sex":"m" , "bankBranchName":"FBZ cairo" , "perion":"null"},
+	{"firstName":"Given", "lastName":"Chiileshe" , "bankName":"FBZ" , "nrc":"655/555/33/3" , "acc":"0001164761678912" , "ssn":"11123" , "amount":"3000" , "dob":"17/06/1940" , "sex":"f" , "bankBranchName":"FBZ cairo" , "perion":"null"},
 	
 	{"firstName":"Nyambe", "lastName":"Lungu" , "bankName":"FBZ" , "nrc":"655/555/33/3" , "acc":"00011647616789121" , "ssn":"111231" , "amount":"3000" , "dob":"17/06/1945" , "sex":"m" , "bankBranchName":"FBZ cairo" , "perion":"null"},
 	
