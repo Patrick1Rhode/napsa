@@ -1,7 +1,6 @@
 <?php
 	include 'header.php';
-	include 'src/constants/db_constants.php';
-	include 'src/constants/encryption_keys.php'; 
+	include '../constants/encryption_keys.php'; 
 ?>
 
 <article>
@@ -10,7 +9,7 @@
 		<div class="col-md-6 col-md-push-3">
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 			<fieldset>
-				<legend>Napsa Admin Console</legend>
+				<legend>Napsa Approval Console</legend>
 				
 				<p>Service Number: <br>
 				<input type="text" name="username"></p>
@@ -58,7 +57,7 @@ if(isset($_POST['login'])){
 				$_SESSION['service_number'] = $ServiceNumber;
 			}
 		
-			header('Location: src/admin.php');
+			header('Location: home.php');
 		} else {
 			echo "Hello No";
 		}

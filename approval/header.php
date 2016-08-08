@@ -1,7 +1,7 @@
 	<?php
 	session_start();
 		ob_start();
-		include 'constants/db_constants.php';
+		include '../constants/db_constants.php';
 
 		$service_number = $_SESSION['service_number'];
 

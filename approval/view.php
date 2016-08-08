@@ -32,7 +32,9 @@ include "../db/db.php";
                     </thead>
                     <tbody>
 <?php
-//
+if((!$_SESSION['permissions_level'] == 3 && !$_SESSION['permission_type'] == 'Public')){
+	  echo "<script>window.location = 'index.php';</script>'";
+}
 $id = $_GET['init_file_id'];
 $sql = "SELECT*FROM init_file INNER JOIN officer USING(ServiceNumber)  WHERE init_file.init_file_id = '$id'";
 $result = $conn->query($sql); 
