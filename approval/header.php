@@ -1,3 +1,51 @@
+	<?php
+	session_start();
+		ob_start();
+		include 'constants/db_constants.php';
+
+		$service_number = $_SESSION['service_number'];
+
+		$connect = mysqli_connect(NAPSA_HOSTNAME, NAPSA_SERVER_USERNAME, NAPSA_SERVER_PASS, NAPSA_SERVER_DB) or die('Error connecting to Server');
+		$query = "SELECT * FROM `officer` WHERE `ServiceNumber` = '$service_number'";
+		$data_collection = mysqli_query($connect, $query);
+
+		while ($row = mysqli_fetch_array($data_collection)) {
+			$rank = $row['Rank'];
+			$surname = $row['Surname'];
+			$othername = $row['OtherNames'];
+			$unit = $row['Unit'];
+			$dateofbirth = $row['DOB']; 
+			$placeofbirth = $row['POB'];
+			$nationality = $row['Nationality'];
+			$countryofbirth = $row['CountryOfBirth'];
+			$spousename = $row['SpouseName'];
+			$spousenationality = $row['SpouseNationality'];
+			$dateofattestation = $row['DateOfAttestation'];
+
+			$name = $rank .' '. $surname .' '.$othername;
+
+		}
+
+	?>
+
+	<?php
+	$query = "SELECT * FROM `securitygroup` WHERE `SecurityGroupID` = '$service_number'";
+	$data_check = mysqli_query($connect, $query) or die("Error querying database");
+	$num_rows = mysqli_num_rows($data_check);
+
+	if($num_rows >= 1){
+		while($row = mysqli_fetch_array($data_check)){
+			$permission = $row[2];
+			$permission_name = $row[1];
+
+			$_SESSION['permissions_level'] = $permission;
+			$_SESSION['permission_type'] = $permission_name;
+
+		}
+	} else {
+		echo "You have no permissions";
+	}
+	?>
 <!DOCTYPE html>
 <html>
 	
