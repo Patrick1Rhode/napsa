@@ -2,17 +2,36 @@
 
 function register($fn,$ln,$ph,$em,$pass,$table){
 	include "../db/db.php";
-	$sql="SELECT*FROM $table WHERE email='$em'";
+	include '../security/hash.php';
 
-$result = $conn->query($sql); 
-if ($result->num_rows > 0) {
-	echo "Duplicate rows";
-}
-else{
-	$sql = "INSERT INTO $table (fName,lName,email,phone_number,password) VALUES ('$fn','$ln','$em','$ph','$pass')";
-	$conn->query($sql);
-}
-	
+	if (!empty($password1) && !empty($password2)) {
+            if ($password1 == $password2) {
+                
+                $final_password = $password1;
+                
+                if (strlen($final_password) >= 6) {
+                
+                $reverse_password = strrev($final_password);
+                $skyfall = hash_hmac(HASH_ALGO_1, $reverse_password, SALT);
+                $hashed_password = hash_hmac(HASH_ALGO, $skyfall . SALT, SITE_KEY);
+                
+                $sql="SELECT*FROM $table WHERE email='$em'";
+				$result = $conn->query($sql); 
+				if ($result->num_rows > 0) {
+					echo "Duplicate rows";
+				}else{
+					$sql = "INSERT INTO $table (fName,lName,email,phone_number,password) VALUES ('$fn','$ln','$em','$ph','$pass')";
+					$conn->query($sql);
+				}
+               
+                } else {
+                    echo 'Your password must be 8 Characters or more';
+                }
+            } else {
+                echo 'Your Passwords Do Not Match!!!';
+            }
+          
+    }	
 }
 ?>
 <?php

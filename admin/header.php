@@ -18,3 +18,13 @@
         </div>
     </nav>		
 </head>
+<?php
+if(!isset($_SESSION['user_id'])){
+    
+    @header('Location: index.php');
+    
+} elseif(isset($_SESSION['user_id'])){
+    $user_id = $_SESSION['user_id'];
+
+}
+?>

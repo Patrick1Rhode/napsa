@@ -18,12 +18,11 @@ if ($result->num_rows > 0) {
 	$lName = $rows['lName'];
 	$admin_name = $fName." ".$lName;
 
-	$time=time()+60*60*60;
-	setCookie('init_id',$init_id,$time);
-	setCookie('init_name',$init_name,$time);
+  @ob_start(); 
+  @session_start(); 
 
-	ob_start(); 
-	header("location:menu.php");
+  $_SESSION['admin_id'] = $admin_id;
+	@header("location:menu.php");
 
 }
 else  {
